@@ -103,7 +103,7 @@ selectInfo <- function(Basis,sc_eset,commonGene,ct.select,ct.varname){
 gene1 = lapply(ct.select,function(ict){
 rest = rowMeans(Basis[,colnames(Basis) != ict])
 FC = log((Basis[,ict] + 1e-06)) - log((rest + 1e-06))
-rownames(Basis)[FC > 1.25 & Basis[,ict] > 0]
+rownames(Basis)[FC > 1.00 & Basis[,ict] > 0]
 })
 gene1 = unique(unlist(gene1))
 gene1 = intersect(gene1,commonGene)
