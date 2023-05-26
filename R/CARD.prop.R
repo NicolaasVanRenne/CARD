@@ -100,9 +100,10 @@ return(list(basis = basis))
 #' 
 selectInfo <- function(Basis,sc_eset,commonGene,ct.select,ct.varname){
 #### log2 mean fold change >0.5
-gene1 = lapply(ct.select,function(ict){
-rest = rowMeans(Basis[,colnames(Basis) != ict])
-FC = log((Basis[,ict] + 1e-06)) - log((rest + 1e-06))
+gene1 <<- lapply(ct.select,function(ict){
+rest <<- rowMeans(Basis[,colnames(Basis) != ict])
+FC <<- log((Basis[,ict] + 1e-06)) - log((rest + 1e-06))
+store.ict <<- ict
 rownames(Basis)[FC > 0.5 & Basis[,ict] > 0]
 })
 gene1 = unique(unlist(gene1))
@@ -116,7 +117,7 @@ sd_within = sapply(ct.select,function(ict){
   apply(temp,1,var) / apply(temp,1,mean)
   })
 ##### remove the outliers that have high dispersion across cell types
-gene2 = rownames(sd_within)[apply(sd_within,1,mean,na.rm = T) < quantile(apply(sd_within,1,mean,na.rm = T),prob = 0.99,na.rm = T)]
+gene2 <<- rownames(sd_within)[apply(sd_within,1,mean,na.rm = T) < quantile(apply(sd_within,1,mean,na.rm = T),prob = 0.99,na.rm = T)]
 return(gene2)
 }
 
