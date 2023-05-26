@@ -108,7 +108,8 @@ rownames(Basis)[FC > 0.5 & Basis[,ict] > 0]
 })
 gene1 = unique(unlist(gene1))
 gene1 = intersect(gene1,commonGene)
-counts <<- assays(sc_eset)$counts
+counts = assays(sc_eset)$counts
+        store.counts.1 <<- counts        
 counts = counts[rownames(counts) %in% gene1,]
 ##### only check the cell type that contains at least 2 cells
 ct.select = names(table(colData(sc_eset)[,ct.varname]))[table(colData(sc_eset)[,ct.varname]) > 1]
