@@ -138,12 +138,12 @@ ct.varname = CARD_object@info_parameters$ct.varname
 sample.varname = CARD_object@info_parameters$sample.varname
 cat(paste0("## create reference matrix from scRNASeq...\n"))
 sc_eset = CARD_object@sc_eset
-Basis_ref = createscRef(sc_eset, ct.select, ct.varname, sample.varname)
+Basis_ref <<- createscRef(sc_eset, ct.select, ct.varname, sample.varname)
 Basis = Basis_ref$basis
 Basis = Basis[,colnames(Basis) %in% ct.select]
-Basis = Basis[,match(ct.select,colnames(Basis))]
+Basis <<- Basis[,match(ct.select,colnames(Basis))]
 spatial_count = CARD_object@spatial_countMat
-commonGene = intersect(rownames(spatial_count),rownames(Basis))
+commonGene <<- intersect(rownames(spatial_count),rownames(Basis))
 #### remove mitochondrial and ribosomal genes
 commonGene  = commonGene[!(commonGene %in% commonGene[grep("mt-",commonGene)])]
 cat(paste0("## Select Informative Genes! ...\n"))
