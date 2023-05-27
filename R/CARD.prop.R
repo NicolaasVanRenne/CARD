@@ -119,10 +119,12 @@ sd_within <<- sapply(ct.select,function(ict){
   })
 ##### remove the outliers that have high dispersion across cell types
 gene2 <<- rownames(sd_within)[apply(sd_within,1,mean,na.rm = T) < quantile(apply(sd_within,1,mean,na.rm = T),prob = 0.99,na.rm = T)]
-        
-return(gene1) #return gene 1 for all genes
-#return(gene2) #return gene 2 for filtering genes away that have specific high gene expression in one celltype
+gene3 <<- cbind(gene2,my.genes)        
 
+#return(gene1) #return gene 1 for all genes
+#return(gene2) #return gene 2 for filtering genes away that have specific high gene expression in one celltype
+return(gene3) #return gene3 to add your own genes stored in vector "my.genes"
+        
 }
 
 #' Spatially Informed Cell Type Deconvolution for Spatial Transcriptomics by CARD
