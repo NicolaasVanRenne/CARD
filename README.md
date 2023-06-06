@@ -1,4 +1,21 @@
-# CARD
+# CARD+: CARD with your genes of interest
+Often when using CARD, interesting genes are filtered away to make the algorithm reliable. This CARD version bypasses the gene selection in two ways that are different from the original version:
+
+1) For the basis matrix, I selected the genes with a mean expression level in a given cell type of at least 0.5 (instead of 1.25) log-fold higher than its mean expression level across all remaining cell. This increases the number of cells without affecting algorithm quality (at least, in my data sets).
+2) You can add your genes of interest by creating a vector 'my.genes' containing your genes of interest. e.g.
+``` r
+ my.genes = c("GENE1","GENE2")
+``` 
+Then just run the whole thing like you would run CARD.
+
+To install this version, just run 
+``` r
+library(devtools)
+install_github("NicolaasVanRenne/CARD")
+library(CARD)"
+``` 
+Kind regards and good luck, 
+Nicolaas Van Renne
 
 ## Spatially Informed Cell Type Deconvolution for Spatial Transcriptomics 
 
