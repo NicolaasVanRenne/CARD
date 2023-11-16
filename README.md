@@ -1,8 +1,8 @@
 # CARD+: CARD with your genes of interest
 When using CARD, interesting genes are often filtered away. This CARD+ version bypasses the gene selection in two ways that are different from the original version:
 
-1) For the basis matrix, I selected the genes with a mean expression level in a given cell type of at least 0.5 (instead of 1.25) log-fold higher than its mean expression level across all remaining cell. This increases the number of genes without affecting algorithm quality (at least, in my data sets).
-2) You can add your genes of interest by creating a vector 'my.genes' containing your genes of interest. e.g.
+1) For the basis matrix, genes are selected with a mean expression level in a given cell type of at least 0.5 (instead of 1.25) log-fold higher than its mean expression level across all remaining cell. This increases the number of genes without generally affecting algorithm quality.
+2) Genes of interest can be added by creating a vector 'my.genes' containing your genes of interest. e.g.
 ``` r
  my.genes = c("GENE1","GENE2")
 ``` 
