@@ -1,5 +1,5 @@
 # CARD+: CARD with your genes of interest
-Often when using CARD, interesting genes are filtered away to make the algorithm reliable. This CARD version bypasses the gene selection in two ways that are different from the original version:
+When using CARD, interesting genes are often filtered away. This CARD+ version bypasses the gene selection in two ways that are different from the original version:
 
 1) For the basis matrix, I selected the genes with a mean expression level in a given cell type of at least 0.5 (instead of 1.25) log-fold higher than its mean expression level across all remaining cell. This increases the number of genes without affecting algorithm quality (at least, in my data sets).
 2) You can add your genes of interest by creating a vector 'my.genes' containing your genes of interest. e.g.
