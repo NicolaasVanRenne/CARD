@@ -15,6 +15,7 @@ install_github("NicolaasVanRenne/CARD")
 library(CARD)"
 ``` 
 Kind regards and good luck, 
+
 Nicolaas Van Renne
 
 ## Spatially Informed Cell Type Deconvolution for Spatial Transcriptomics 
